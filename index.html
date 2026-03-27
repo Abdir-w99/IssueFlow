@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <div class="container">
+      <h1>IssueFlow</h1>
+
+      <form>
+        <input type="text" placeholder="Issue title" />
+
+        <textarea placeholder="Issue description"></textarea>
+
+        <select>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <button type="submit">Add Issue</button>
+      </form>
+      <div class="issue-list"></div>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
