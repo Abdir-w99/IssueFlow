@@ -10,12 +10,12 @@
     <div class="container">
       <h1>IssueFlow</h1>
 
-      <form>
-        <input type="text" placeholder="Issue title" />
+      <form id="issue-form">
+        <input id="title" type="text" placeholder="Issue title" />
 
-        <textarea placeholder="Issue description"></textarea>
+        <textarea id="description" placeholder="Issue description"></textarea>
 
-        <select>
+        <select id="priority">
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
@@ -23,7 +23,7 @@
 
         <button type="submit">Add Issue</button>
       </form>
-      <div class="issue-list"></div>
+      <div id="issue-list" class="issue-list"></div>
     </div>
     <script src="./script.js"></script>
   </body>
