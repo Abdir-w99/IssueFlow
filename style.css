@@ -20,3 +20,50 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+textarea,
+select,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.issue-list {
+  margin-top: 20px;
+}
+
+.issue-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.status-btn,
+.delete-btn {
+  padding: 8px 12px;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.status-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
