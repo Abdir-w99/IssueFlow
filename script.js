@@ -41,8 +41,17 @@ function renderIssues() {
          <p>${issue.description}</p>
          <p>Priority: ${issue.priority}</p>
          <p>Status: ${issue.status}</p>
+         <button class="status-btn">Change Status</button>
+        <button onclick="deleteIssue(${issue.id})" class="delete-btn">Delete</button>
         </div>
         
         `;
   });
+}
+
+function deleteIssue(id) {
+  issues = issues.filter(function (issue) {
+    return issue.id !== id;
+  });
+  renderIssues();
 }
