@@ -41,7 +41,7 @@ function renderIssues() {
          <p>${issue.description}</p>
          <p>Priority: ${issue.priority}</p>
          <p>Status: ${issue.status}</p>
-         <button class="status-btn">Change Status</button>
+         <button onclick="toggleStatus(${issue.id})" class="status-btn">Change Status</button>
         <button onclick="deleteIssue(${issue.id})" class="delete-btn">Delete</button>
         </div>
         
@@ -52,6 +52,19 @@ function renderIssues() {
 function deleteIssue(id) {
   issues = issues.filter(function (issue) {
     return issue.id !== id;
+  });
+  renderIssues();
+}
+
+function toggleStatus(id) {
+  issues = issues.map(function (issue) {
+    if (issue.id === id) {
+      return {
+        ...issue,
+        status: issue.status === "Open" ? "Closed" : "Open",
+      };
+    }
+    return issue;
   });
   renderIssues();
 }
