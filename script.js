@@ -11,6 +11,12 @@ let issues = [];
 issueForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  // Form validation
+  if (titleInput.value.trim() === "" || descriptionInput.value.trim() === "") {
+    alert("Please fill in both title and description");
+    return;
+  }
+
   // Issue object
   const newIssue = {
     id: Date.now(),
@@ -49,6 +55,7 @@ function renderIssues() {
   });
 }
 
+// Delete button
 function deleteIssue(id) {
   issues = issues.filter(function (issue) {
     return issue.id !== id;
@@ -56,6 +63,7 @@ function deleteIssue(id) {
   renderIssues();
 }
 
+// Toggle status
 function toggleStatus(id) {
   issues = issues.map(function (issue) {
     if (issue.id === id) {
