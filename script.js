@@ -7,6 +7,17 @@ const issueList = document.getElementById("issue-list");
 // Store all issues here
 let issues = [];
 
+function saveIssues() {
+  localStorage.setItem("issues", JSON.stringify(issues));
+}
+
+// load issues from localstorage
+const savedIssues = localStorage.getItem("issues");
+if (savedIssues) {
+  issues = JSON.parse(savedIssues);
+  renderIssues();
+}
+
 // Handle form submit
 issueForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -20,13 +31,15 @@ issueForm.addEventListener("submit", function (e) {
   // Issue object
   const newIssue = {
     id: Date.now(),
-    title: titleInput.value,
-    description: descriptionInput.value,
+    title: titleInput.value.trim(),
+    description: descriptionInput.value.trim(),
     priority: prioritySelect.value,
     status: "Open",
   };
 
   issues.push(newIssue);
+
+  saveIssues();
 
   // Update UI
   renderIssues();
@@ -60,6 +73,8 @@ function deleteIssue(id) {
   issues = issues.filter(function (issue) {
     return issue.id !== id;
   });
+
+  saveIssues();
   renderIssues();
 }
 
@@ -74,5 +89,7 @@ function toggleStatus(id) {
     }
     return issue;
   });
+
+  saveIssues();
   renderIssues();
 }
